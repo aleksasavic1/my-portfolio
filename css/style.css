@@ -31,6 +31,7 @@ header {
     background-image: linear-gradient(to right, #afafdf, #dadaa2);
     -webkit-background-clip: text;
     color: transparent;
+    cursor: pointer;
 }
 
 header .links ul {
@@ -170,7 +171,58 @@ menu img {
 }
 
 
+/* ABOUT ME PAGE */
+
 #secondPage {
+    height: 100vh;
+    padding: 5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.about-me h1 {
+    font-size: 2.8rem;
+}
+
+.about-me p, .about-me-r p {
+    font-size: 1.1rem;
+    width: 50%;
+}
+
+.about-me-r {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.animWords {
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+.animWords span {
+    animation: slidingColor 4s ease infinite, slidingShine 4s ease infinite;
+}
+
+
+
+
+/* SKILLS PAGE */
+#thirdPage {
+    height: 100vh;
+    padding: 5rem 2.5rem;
+}
+
+/* GITHUB ACCOUNT PAGE */
+#fourthPage {
+    height: 100vh;
+    padding: 5rem 2.5rem;
+}
+
+/* COURSES PAGE */
+#fifthPage {
     height: 100vh;
     padding: 5rem 2.5rem;
 }
@@ -227,6 +279,19 @@ menu img {
 }
 
 
+@keyframes slidingColor {
+    50% {
+        color: gold;
+    }
+}
+
+@keyframes slidingShine {
+    60% {
+        text-shadow: 0 0 10px hsla(60, 100%, 50%, 0.9);
+    }
+}
+
+
 /* For Responsive Design */
 
 @media (max-width: 768px) {
@@ -250,5 +315,29 @@ menu img {
 @media (max-width: 600px) {
     #menuLinks {
         width: 100vw;
+    }
+
+
+    #secondPage .about-me-r {
+        align-items: flex-start;
+    }
+
+    .about-me p, .about-me-r p {
+        width: 100%;
+    }
+
+    #secondPage {
+        justify-content: space-around;
+    }
+}
+
+
+@media (max-width: 375px) and (max-height: 831px) {
+    #secondPage div p {
+        font-size: 0.9rem;
+    }
+
+    .about-me h1 {
+        font-size: 2.6;
     }
 }
