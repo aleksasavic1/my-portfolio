@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* Basic Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(0, 0%, 3%);
+    font-family: Chakra Petch;
+    color: white;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    padding: 0.6rem 1.2rem;
+    z-index: 1000;
+
+    background-color: hsl(0, 0%, 3%); /* URADITI */
+}
+
+.portfolio h1 {
+    background-image: linear-gradient(to right, #afafdf, #dadaa2);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+header .links ul {
+    display: flex;
+    list-style: none;
+}
+
+header .links ul li {
+    margin: 0 1rem;
+}
+
+header .links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    text-wrap: nowrap;
+    position: relative;
+}
+
+header .links ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+header .links ul li a:hover::before {
+    width: 100%;
+}
+
+menu {
+    display: none;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+menu img {
+    width: 34px;
+    height: 30px;
+}
+
+
+#menuLinks {
+    margin-top: 61.1875px;
+    z-index: 1000;
+    position: fixed;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    background-image: linear-gradient(to top, hsl(0, 0%, 12%) 5%, hsl(0, 0%, 10%) 10%, hsl(0, 0%, 8%) 20%, hsl(0, 0%, 3%));
+    padding: 1rem 0;
+    
+    transform: translateX(100%);
+    transition: 400ms ease;
+}
+
+#menuLinks li {
+    margin: 0.5rem 0;
+}
+
+#menuLinks li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.7rem;
+}
+
+
+#firstPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 2rem;
+
+    background-image: url("../images/transparent-bg1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -100;
+}
+
+.profile {
+    position: relative;
+    display: flex;
+    z-index: 100;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.profile::after, .profile::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 60%, #05f305, #fffb00);
+    top: 50.05%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 2px;
+    border-radius: 4px;
+
+    animation: 3s spin linear infinite;
+}
+
+.profile::before {
+    filter: blur(1.2rem);
+    opacity: 0.5;
+}
+
+#profile-img {
+    height: auto;
+    width: 260px;
+    border-radius: 4px;
+    filter: brightness(86%);
+}
+
+
+.short-desc h1 {
+    font-size: 4rem;
+}
+.short-desc p {
+    font-size: 1.6rem;
+}
+
+
+#secondPage {
+    height: 100vh;
+    padding: 5rem 2.5rem;
+}
+
+
+
+/* Animations */
+
+
+.name {
+    animation: color-pulse 1s ease infinite, shine 2s ease infinite;
+}
+
+@keyframes color-pulse {
+    50% {
+        color: #36e453;
+    }
+}
+
+@keyframes shine {
+    50% {
+        text-shadow: 0 0 12px #8df318;
+    }
+}
+
+.typing {
+    width: 18ch;
+    animation: typing 2s steps(45), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid white;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+
+/* For Responsive Design */
+
+@media (max-width: 768px) {
+    .links {
+        display: none;
+    }
+
+    menu {
+        display: flex;
+        
+    }
+}
+
+
+@media (max-width: 736px) {
+    #firstPage {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    #menuLinks {
+        width: 100vw;
+    }
+}
