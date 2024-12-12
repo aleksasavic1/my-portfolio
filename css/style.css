@@ -221,13 +221,78 @@ menu img {
     padding: 5rem 2.5rem;
 }
 
+
+
+
 /* COURSES PAGE */
 #fifthPage {
     height: 100vh;
     padding: 5rem 2.5rem;
 }
 
+#fifthPage > h1 {
+    font-size: 3rem;
+    text-align: center;
+}
 
+.courses {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.courses div {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: hsla(0, 0%, 10%, 0.4);
+    box-shadow: 6px 6px 6px black;
+}
+
+.courses div a img {
+
+    width: 240px;
+    height: 240px;
+    padding: 20px;
+
+    border-radius: 50%;
+    /* background-color: hsla(0, 0%, 100%, 0.5); */
+
+
+    filter: drop-shadow(3px 3px 3px black);
+
+}
+
+
+#ita, #udemy {
+    margin-top: 10rem;
+    transition: 300ms ease;
+}
+#w3s {
+    margin-bottom: 10rem;
+    transition: 300ms ease;
+}
+
+#ita:hover, #w3s:hover, #udemy:hover {
+    transform: scale(1.08);
+}
+
+
+.courses div h1 {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.courses div p {
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
 
 /* Animations */
 
@@ -339,5 +404,41 @@ menu img {
 
     .about-me h1 {
         font-size: 2.6;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 1279px) {
+    #ita, #udemy {
+        margin-top: 0;
+    }
+    #w3s {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 1185px) {
+    #ita, #udemy, #w3s {
+        margin: 1.3rem 4rem;
+    }
+}
+
+@media (max-width: 684px) {
+    #ita, #udemy, #w3s {
+        margin: 1.3rem 0;
+    }
+}
+
+@media (max-width: 607px) {
+    .courses div {
+        transform: scale(0.8);
+    }
+
+    #ita, #udemy, #w3s {
+        margin: 0;
     }
 }
