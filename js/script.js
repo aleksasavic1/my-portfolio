@@ -1,8 +1,32 @@
+document.addEventListener('wheel', function(e) {
+  const scrollDirection = e.deltaY;
+  const sections = document.querySelectorAll('.section');
+  let currentSection = 0;
+
+  sections.forEach((section, index) => {
+    if (window.scrollY >= section.offsetTop) {
+      currentSection = index;
+    }
+  });
+
+  if (scrollDirection > 0) {
+    if (currentSection < sections.length - 1) {
+      sections[currentSection + 1].scrollIntoView({ behavior: 'smooth' });
+    }
+  } else {
+    if (currentSection > 0) {
+      sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+});
+
+
+
 let menuLinks = document.querySelector("#menuLinks");
 let menuStatus = 0;
 
 
-function menu() {
+const menu = () => {
     menuStatus = !menuStatus;
 
     if(menuStatus === true) {
@@ -91,3 +115,25 @@ wordsArray.forEach((word, index) => {
 });
 
 document.querySelector(".animWords").innerHTML = singleSpan;
+
+
+let animationWidth = 0;
+
+window.onscroll = () => {
+    let sectionForAnimation = document.querySelector("#secondPage div");
+    let sectionPosition = sectionForAnimation.getBoundingClientRect().top;
+    let screenPosition = window.innerHeight / 1.3;
+
+    let leftDiv = document.querySelector(".about-me");
+    let rightDiv = document.querySelector(".about-me-r");
+    let leftAnim = document.querySelector("#moonImg");
+    let rightAnim = document.querySelector("#animGif");
+
+
+    if(sectionPosition < screenPosition) {
+        leftDiv.classList.add("slide");
+        rightDiv.classList.add("slide");
+        leftAnim.style.opacity = "0.33";
+        rightAnim.style.opacity = "0.33";
+    }
+}

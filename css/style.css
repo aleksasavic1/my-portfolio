@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: hsl(0, 0%, 3%);
     font-family: Chakra Petch;
@@ -107,6 +111,16 @@ menu img {
     font-size: 1.7rem;
 }
 
+section {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+}
+
+.section {
+    scroll-snap-align: start;
+    height: 100vh;
+}
+
 
 #firstPage {
     display: flex;
@@ -160,6 +174,12 @@ menu img {
     width: 260px;
     border-radius: 4px;
     filter: brightness(86%);
+    cursor: pointer;
+    transition: 300ms ease;
+}
+
+#profile-img:hover {
+    filter: brightness(100%);
 }
 
 
@@ -179,6 +199,15 @@ menu img {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+    overflow-x: hidden;
+    position: relative;
+}
+
+.about-me {
+    transform: translateX(-50%);
+    transition: 1.5s ease;
+    opacity: 0;
 }
 
 .about-me h1 {
@@ -194,6 +223,16 @@ menu img {
     display: flex;
     flex-direction: column;
     align-items: end;
+
+    transform: translateX(50%);
+    transition: 1.5s ease;
+    opacity: 0;
+}
+
+
+.slide {
+    transform: translateX(0%);
+    opacity: 1;
 }
 
 .animWords {
@@ -206,6 +245,26 @@ menu img {
     animation: slidingColor 4s ease infinite, slidingShine 4s ease infinite;
 }
 
+#moonImg {
+    position: absolute;
+    width: 400px;
+    bottom: 5%;
+    left: 10%;
+    z-index: -1000;
+    opacity: 0;
+    animation: moving 6s ease-in infinite;
+    transition: 3s ease-in;
+}
+
+#animGif {
+    position: absolute;
+    width: 800px;
+    top: 10%;
+    right: 5%;
+    z-index: -1000;
+    opacity: 0;
+    transition: 3s ease-in;
+}
 
 
 
@@ -356,6 +415,11 @@ menu img {
     }
 }
 
+@keyframes moving {
+    50% {
+        transform: translate(5%, -5%)
+    }
+}
 
 /* For Responsive Design */
 
