@@ -133,7 +133,5 @@ window.onscroll = () => {
     if(sectionPosition < screenPosition) {
         leftDiv.classList.add("slide");
         rightDiv.classList.add("slide");
-        leftAnim.style.opacity = "0.33";
-        rightAnim.style.opacity = "0.33";
     }
 }

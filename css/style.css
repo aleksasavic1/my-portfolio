@@ -245,27 +245,15 @@ section {
     animation: slidingColor 4s ease infinite, slidingShine 4s ease infinite;
 }
 
-#moonImg {
+
+#moon {
     position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, -50%);
     width: 400px;
-    bottom: 5%;
-    left: 10%;
-    z-index: -1000;
-    opacity: 0;
-    animation: moving 6s ease-in infinite;
-    transition: 3s ease-in;
+    z-index: -10000;
 }
-
-#animGif {
-    position: absolute;
-    width: 800px;
-    top: 10%;
-    right: 5%;
-    z-index: -1000;
-    opacity: 0;
-    transition: 3s ease-in;
-}
-
 
 
 /* SKILLS PAGE */
@@ -415,12 +403,6 @@ section {
     }
 }
 
-@keyframes moving {
-    50% {
-        transform: translate(5%, -5%)
-    }
-}
-
 /* For Responsive Design */
 
 @media (max-width: 768px) {
@@ -504,5 +486,12 @@ section {
 
     #ita, #udemy, #w3s {
         margin: 0;
+    }
+}
+
+@media (max-width: 446px) {
+    .short-desc .name {
+        text-wrap: no-wrap;
+        font-size: 3rem;
     }
 }
